@@ -1,0 +1,107 @@
+<% layout('layouts/boilerplate') %>
+<div class="row">
+  <div class="col-md-6 offset-md-3">
+    <h1 class="text-center mb-5">Create New Camp</h1>
+    <form
+      action="/campgrounds"
+      method="post"
+      id="new-camp"
+      novalidate
+      class="validated-form"
+      enctype="multipart/form-data"
+    >
+      <div class="mb-3">
+        <label class="form-label" for="title">Title</label>
+        <input
+          class="form-control"
+          type="text"
+          id="title"
+          name="campground[title]"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="location">Location</label>
+        <input
+          class="form-control"
+          type="text"
+          id="location"
+          name="campground[location]"
+          required
+        />
+      </div>
+      <div class="mb-3">
+        <label for="formFileMultiple" class="form-label">Upload Images</label>
+        <input
+          type="file"
+          class="form-control"
+          id="img"
+          name="image"
+          multiple
+          required
+        />
+
+        <div class="invalid-feedback">
+          This campground would look much better with a picture.
+        </div>
+      </div>
+      <!-- <div class="mb-3">
+      <input type="file" name="image" id="img" multiple />
+    </div> -->
+      <div class="mb-3">
+        <label class="form-label" for="price">Price</label>
+        <div class="input-group">
+          <span class="input-group-text" id="price-label">$</span>
+          <input
+            class="form-control"
+            type="text"
+            id="price"
+            name="campground[price]"
+            aria-placeholder="price"
+            placeholder="0.00"
+            aria-describedby="price-label"
+            required
+          />
+          <div class="invalid-feedback" class="price">Only Enter Number</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label" for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          name="campground[description]"
+          required
+        />
+        <!-- <textarea
+          class="form-control"
+          type="text"
+          id="description"
+          name="campground[description]"
+          required
+        ></textarea> -->
+      </div>
+      <div class="col-12">
+        <div class="form-check">
+          <input
+            class="form-check-input"
+            type="checkbox"
+            value=""
+            id="invalidCheck"
+            required
+          />
+          <label class="form-check-label mb-3" for="invalidCheck">
+            Agree to terms and conditions
+          </label>
+          <div class="invalid-feedback">You must agree before submitting.</div>
+        </div>
+      </div>
+      <div>
+        <button class="btn btn-dark mb-3" type="submit">Create Camp</button
+        ><br />
+      </div>
+      <a href="/campgrounds">Cancel</a>
+    </form>
+  </div>
+</div>

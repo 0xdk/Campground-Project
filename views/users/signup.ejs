@@ -1,0 +1,55 @@
+<% layout('layouts/boilerplate') %> <%- include("../partials/flash")%>
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+  <div class="row flex-fill mt-5">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title text-center">Sign Up</h4>
+          <form
+            action="/signup"
+            method="post"
+            class="validated-form"
+            novalidate
+          >
+            <div class="mb-3">
+              <label class="form-label" for="username">Username</label>
+              <input
+                class="form-control"
+                type="text"
+                id="username"
+                name="username"
+                autofocus
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="password">Password</label>
+              <input
+                class="form-control"
+                type="password"
+                id="password"
+                name="password"
+                required
+              />
+            </div>
+            <div class="mb-3">
+              <label class="form-label" for="email">Email</label>
+              <input
+                class="form-control"
+                type="email"
+                id="email"
+                name="email"
+                required
+              />
+              <div class="invalid-feedback">
+                Use proper email address with @
+              </div>
+            </div>
+            <button class="btn btn-dark">Sign Up</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
