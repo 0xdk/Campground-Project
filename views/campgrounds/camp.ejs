@@ -6,11 +6,11 @@
 <div class="row">
   <%- include("../partials/flash")%>
   <div class="col-8 offset-2">
-    <!-- <div id="map" , style="width: 857px; height: 300px"></div> -->
+    <div id="map" , style="width: 857px; height: 300px" class="mb-3"></div>
     <div id="campCarouselControls" class="carousel slide" data-ride="carousel">
       <div class="carousel-inner">
         <% camps.images.forEach((img , i) => { %>
-        <div class="carousel-item <%= i === 0 ? 'active' : '' %>">
+        <div class="carousel-item <%= i === 0 ? 'active' : '' %> mt-3">
           <img class="d-block w-100" src="<%= img.url %>" alt="First slide" />
         </div>
         <% }) %>
@@ -188,21 +188,12 @@
 </div>
 <!-- <a href="/campgrounds/<%= camps._id %>/edit">Edit</a> -->
 
-<!-- <script>
-  mapboxgl.accessToken = '<%- process.env.MAPBOX_TOKEN %>';
-  const map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v11',
-    center: [-75, 40],
-    zoom: 9,
-  }); 
-</script>-->
+<!-- Map is off due to limited API request, turn it on in the future-->
 
-<!-- turned of the map feature -->
-
-<!-- <script>
+<script>
   let mapToken = '<%- process.env.MAPBOX_TOKEN %>';
   let camp = <%- JSON.stringify(camps)%>
 </script>
 
-<script src="/javascripts/campMap.js"></script> -->
+<script src="/javascripts/campMap.js"></script>
+<!-- <script src="/javascripts/clusterMap.js"></script> -->

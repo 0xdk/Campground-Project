@@ -5,13 +5,6 @@ let router = express.Router({ mergeParams: true });
 // controller
 const reviewsCtrl = require('../controllers/reviewsCtrl');
 
-// utils
-let wrapAsync = require('../utils/wrapAsync');
-
-// models
-const Review = require('../models/reviewSchema');
-const Campground = require('../models/campgroundSchema');
-
 // isAuthenticate() and joi validation middleware
 let {
   isLoggedIn,

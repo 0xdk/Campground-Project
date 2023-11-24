@@ -2,7 +2,6 @@ let express = require('express');
 let router = express.Router();
 // controller
 let userCtrl = require('../controllers/userCtrl');
-let User = require('../models/userSchema');
 let passport = require('passport');
 let { storeReturnTo } = require('../middleware/middleware');
 

@@ -1,7 +1,7 @@
 let joi = require('joi');
 const sanitizeHtml = require('sanitize-html');
 
-// sanitizeHtml show this warning, sill haven't figured out how to solve this warning
+// sanitizeHtml show this warning, sill haven't figured out how to solve this one
 
 // ⚠️ Your `allowedTags` option includes, `style`, which is inherently
 // vulnerable to XSS attacks. Please remove it from `allowedTags`.

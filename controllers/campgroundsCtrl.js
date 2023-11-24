@@ -73,7 +73,6 @@ module.exports.showCamp = async (req, res) => {
   const id = req.params.id;
   const camps = await getCacheData(id);
   if (camps !== null) {
-    console.log(camps);
     console.log('cached');
     res.render('campgrounds/camp', { camps });
   } else {

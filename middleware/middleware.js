@@ -52,9 +52,9 @@ module.exports.isOwner = async (req, res, next) => {
   }
   next();
 };
+
 module.exports.isReviewOwner = async (req, res, next) => {
   let { reviewId } = req.params;
-  let review = await Review.findById(reviewId);
-
+  await Review.findById(reviewId);
   next();
 };

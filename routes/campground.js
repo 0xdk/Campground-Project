@@ -1,14 +1,11 @@
 let express = require('express');
-const { model } = require('mongoose');
 let router = express.Router();
 // controller
 let campgrounds = require('../controllers/campgroundsCtrl');
 // utils
 let wrapAsync = require('../utils/wrapAsync');
-
 // cloudinary
 const { storage } = require('../cloudinary');
-
 // multer
 const multer = require('multer');
 // middleware to upload images to cloudinary

@@ -1,7 +1,6 @@
 // models
 const Review = require('../models/reviewSchema');
 const Campground = require('../models/campgroundSchema');
-// const populateCampground = require('../utils/populate');
 
 // redis
 const redis = require('redis');

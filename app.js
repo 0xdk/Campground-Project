@@ -13,10 +13,8 @@ const MongoStore = require('connect-mongo');
 const flash = require('connect-flash');
 const passport = require('passport');
 const localStrategy = require('passport-local');
-// mongo sanitize is not used in this code, check notion for more info
-// let mongoSanitize = require('mongo-sanitize');
 const helmet = require('helmet');
-
+const AppError = require('./utils/AppError');
 // helmet CSP
 const { scriptSrcUrls } = require('./utils/helmetCsp');
 const { styleSrcUrls } = require('./utils/helmetCsp');
@@ -29,6 +27,7 @@ const User = require('./models/userSchema');
 // database connections
 // mongo atlas is for production, using local DB for development
 // const dbUrl = process.env.DB_URL;
+// const dbUrl = process.env.LOCAL_DB_URL;
 const dbUrl = 'mongodb://localhost:27017/yelp-camp';
 
 main().catch((err) => console.log(err));
@@ -50,8 +49,6 @@ app.use(methodOverride('_method'));
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
-
-// app.use(mongoSanitize());
 
 //  requiring Routers
 const campgroundRoutes = require('./routes/campground');
@@ -138,10 +135,6 @@ app.use('/', userRoutes);
 app.get('/', (req, res) => {
   res.render('campgrounds/home');
 });
-
-// app.all('*', (req, res, next) => {
-//   next(new AppError('Page Not Found', 404));
-// });
 
 app.use((err, req, res, next) => {
   const { message, status } = err;
