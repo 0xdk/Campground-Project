@@ -27,8 +27,7 @@ const User = require('./models/userSchema');
 // database connections
 // mongo atlas is for production, using local DB for development
 // const dbUrl = process.env.DB_URL;
-// const dbUrl = process.env.LOCAL_DB_URL;
-const dbUrl = 'mongodb://localhost:27017/yelp-camp';
+const dbUrl = process.env.LOCAL_DB_URL;
 
 main().catch((err) => console.log(err));
 async function main() {
@@ -146,5 +145,5 @@ app.use((err, req, res, next) => {
 const port = process.env.PORT || 8080;
 
 app.listen(port, () => {
-  console.log('listening on port 8080');
+  console.log(`Listing on Port ${port}`);
 });

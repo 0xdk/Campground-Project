@@ -155,6 +155,20 @@ module.exports.deleteCamp = async (req, res) => {
   res.redirect('/campgrounds');
 };
 
+//searching
+module.exports.campSearch = async (req, res) => {
+  let { key } = req.body;
+  console.log(key);
+  const camps = await Campground.find({
+    $or: [
+      { location: { $regex: new RegExp(key, 'i') } },
+      { title: { $regex: new RegExp(key, 'i') } },
+    ],
+  });
+  console.log(camps);
+  res.render('campgrounds/showResult', { camps });
+};
+
 module.exports.deleteMany = async (req, res) => {
   await Campground.deleteMany({});
   res.redirect('/home');

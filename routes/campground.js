@@ -28,6 +28,9 @@ router
 // Create
 router.get('/newCamp', isLoggedIn, campgrounds.renderNewForm);
 
+// camp search
+router.post('/search', campgrounds.campSearch);
+
 router
   .route('/:id')
   .put(
